@@ -211,7 +211,7 @@
                                         <div class="blog-content-one blog-content-two sp-six centred">
                                             <div class="top-content">
                                                 <div class="meta-text"><?php the_category( ' ' ); ?></div>
-                                                <div class="title"><h4><a href="post1.html"><?php the_title();?></a></h4></div>
+                                                <div class="title"><h4><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h4></div>
                                                 <div class="date"><span>On</span>  <?php echo get_the_date('F m, Y') ?> &nbsp;&nbsp;<i class="flaticon-circle"></i>&nbsp;&nbsp;<span>By</span> <?php the_author(); ?></div>
                                             </div>
                                             <div class="text">
@@ -259,7 +259,7 @@
                                         <div class="blog-content-one blog-content-two sp-six centred">
                                             <div class="top-content">
                                                 <div class="meta-text"><?php the_category( ' ' ); ?></div>
-                                                <div class="title"><h4><a href="post1.html"><?php the_title();?></a></h4></div>
+                                                <div class="title"><h4><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h4></div>
                                                 <div class="date"><span>On</span>  <?php echo get_the_date('F m, Y') ?> &nbsp;&nbsp;<i class="flaticon-circle"></i>&nbsp;&nbsp;<span>By</span> <?php the_author(); ?></div>
                                             </div>
                                             <div class="text">

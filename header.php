@@ -46,11 +46,12 @@
                                 $custom_logo_id = get_theme_mod( 'custom_logo' );
                                 $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
                                 
-                                if ( has_custom_logo() ) {
-                                    echo '<img src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
-                                } else {                                   
-                                    echo '<h1 class="theme-logo-title">' . get_bloginfo('name') . '</h1>';
-                                    echo '<p class="theme-logo-description">' . get_bloginfo('description') . '</p>';
+                                if ( has_custom_logo() ) { 
+                                    echo '<img src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';                                  
+                                } else {     ?>
+                                    <a href="<?php echo get_site_url(); ?>"><h1 class="theme-logo-title"><?php echo get_bloginfo('name'); ?></h1></a>                                   
+                                    <p class="theme-logo-description"><?php echo get_bloginfo('description'); ?></p>
+                                    <?php
                                 }
                             ?>
                         </div>

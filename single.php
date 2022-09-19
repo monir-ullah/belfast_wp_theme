@@ -1,9 +1,11 @@
 <?php 
     get_header();
+    global $post;
+    $user = wp_get_current_user();
+    $author_id = $post->post_author;
+    $author_social_repeater = get_field('author_social_repeater', 'user_'. $author_id )
+                           
 ?>
-
-   
-
 
     <!-- main-menu -->
     <div class="theme_menu menu-area stricky centred">
@@ -83,51 +85,39 @@
     <div class="row">
         <div class="col-md-9 col-sm-12 col-xs-12 content-side">
             <div class="blog-details-content">
-                <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/1.jpg" alt=""></figure>
+                <figure><img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php the_title();?>"></figure>
                 <div class="blog-content-one sp-three">
                     <div class="top-content centred">
-                        <div class="meta-text">Travel</div>
-                        <div class="title"><h3>Flying away on a wing and a prayer</h3></div>
-                        <div class="date"><span>On</span> JANUARY 19, 2018 &nbsp;&nbsp;<i class="flaticon-circle"></i>&nbsp;&nbsp;<span>By</span> PAUL JOHN HEYMAN</div>
+                        <div class="meta-text"><?php the_category( ' ' ); ?></div>
+                        <div class="title"><h3><?php the_title();?></h3></div>
+                        <div class="date"><span>On</span> <?php echo get_the_date('F m, Y') ?> &nbsp;&nbsp;<i class="flaticon-circle"></i>&nbsp;&nbsp;<span>By </span> &nbsp;<a href="<?php echo get_the_author_meta( 'user_url', $author_id ); ?>"><?php echo get_the_author_meta( 'first_name', $author_id ); ?></a></div>  
                     </div>
-                    <div class="text-style-one">
-                        <div class="bold-text">T</div>
-                        <p>The need no welfare states starship enterprise the Brady Bunch that's the way we all be came the Brady Bunch these days are all Happy and Free these days you wanna be where everybody knows your name fish do not fry in the kitchen and beans do not burn on the grill took a whole lotta trying just to get upset
-                        </p>
-                    </div>
-                    <div class="text">
-                        <p>need no welfare states starship enterprise the Brady Bunch that's the way we all be came the Brady Bunch these to days are all Happy and Free these days you wanna be where everybody knows your name fish do not fry in the artist kitchen and beans do not burn on the grill took a whole lotta trying just to get up that hill. </p>
-                        <p>There are all Happy and Free these days you wanna be where everybody knows your name fish do not fry in the kitchen and beans do not burn on the grill took a whole lotta trying just to get up that hill.</p>
-                    </div>
-                    <blockquote class="quote-text">
-                        Brady Bunch that's the way we all be came the Brady Bunch these to days are all Happy and Free these days you wanna be where everybody knows your name fish do not fry in the artist kitchen and beans do not burn on the grill took a whole lotta trying just to get up that hill.
-                    </blockquote>
-                    <div class="about-content-two">
-                        <h4 class="title-text">Life support systems return</h4>
-                        <div class="text">
-                            <p>That is the way we all be came the Brady Bunch these to days are all Happy and Free these days you wanna be where everybody knows your name fish do not fry in the artist kitchen and beans do not burn on the grill took a whole lotta trying just to get up that hill.</p>
-
-                            <p>The need no welfare states starship enterprise the Brady Bunch that's the way we all be came the Brady Bunch these days are all Happy and Free these days you wanna be where everybody knows your name fish do not fry in the kitchen and beans do not burn on the grill took a whole lotta trying just to get upset.</p>
-                            <p>
-                            There are all Happy and Free these days you wanna be where everybody knows your name fish do not fry in the kitchen and beans do not burn on the grill took a whole lotta trying just to get up that hill.</p>
-                        </div>
+                    <div>
+                        <?php the_content(); ?>
                     </div>
                     <ul class="meta-list centred">
-                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; 37</a> &nbsp; <i class="flaticon-circle"></i> &nbsp; <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 20</a></li>
-                        <li><a href="post1.html"><i class="flaticon-substract"></i> &nbsp; CONTINUE READING &nbsp; <i class="flaticon-substract"></i></a></li>
-                        <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i> &nbsp;Share</a></li>
+                        <li><a href="<?php the_permalink();?>"><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; <?php echo get_comments_number(); ?></a>  
+                            <?php if(1>get_comments_number()){
+                                echo "Comment";
+                                }else{
+                                    echo "Comments";
+                                } 
+                            ?></a> &nbsp; <i class="flaticon-circle"></i> &nbsp; </li>
+                        <li><a href="<?php the_permalink();?>"><i class="flaticon-substract"></i> &nbsp; CONTINUE READING &nbsp; <i class="flaticon-substract"></i></a></li>
+                        <li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink();?>"><i class="fa fa-share-alt" aria-hidden="true"></i> &nbsp;Share</a></li>
                     </ul>
                 </div>
                 <div class="single-authore">
-                    <div class="authore-img"><figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/authore.jpg" alt=""></figure></div>
-                    <div class="authore-title">JASSY BEULA - <span>Author</span></div>
-                    <div class="text"><p>The days are all Happy and Free these days you wanna be where everybody knows your name fish do kitchen and beans do not burn on the grill took a whole lotta trying just to get up that wet floor.</p></div>
-                    <ul class="social-link">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                    <div class="authore-img"><figure><img src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" alt="<?php echo get_the_author_meta( 'display_name',$author_id );?>"></figure></div>
+                    <div class="authore-title margin-l-5"><?php echo get_the_author_meta( 'display_name', $author_id ); ?> - <span>Author</span></div>
+                    <div class="text margin-l-5"><p><?php echo get_the_author_meta( 'description', $author_id ); ?></p></div>
+                    <ul class="social-link margin-l-5">
+                        <?php
+                           foreach( $author_social_repeater as $author_signle_social){ ?>
+                            <li><a href="<?php echo $author_signle_social['author_social_link']; ?>"><i class="<?php echo $author_signle_social['author_social_icon']; ?>"></i></a></li>
+                            <?php
+                           }
+                        ?>
                     </ul>
                 </div>
                 <div class="related-post centred">
