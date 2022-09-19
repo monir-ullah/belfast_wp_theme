@@ -40,3 +40,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .copyright p{
     font-size: 12px;
 }
+
+span.margin-l-5{
+    margin-left: 9px;
+}
+.social-style-seven li:first-child {
+    margin-left: 0px;
+}

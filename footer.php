@@ -36,7 +36,7 @@
                                     $footer_social_media_link = $footer_sinlge_link['footer_social_media_link']; 
                                     $footer_social_media_icon = $footer_sinlge_link['footer_social_media_icon']; 
                                     if($footer_social_media_name && $footer_social_media_link && $footer_social_media_icon){ ?>
-                                        <li><a href="<?php echo $footer_social_media_link;?>"> <i class="<?php echo $footer_social_media_icon;?>"></i><?php echo $footer_social_media_name;?></a></li>
+                                        <li><a href="<?php echo $footer_social_media_link;?>"> <i class="<?php echo $footer_social_media_icon;?>"></i><span class="margin-l-5"><?php echo $footer_social_media_name;?></span></a></li>
                                       <?php  
                                     }
                                 }
