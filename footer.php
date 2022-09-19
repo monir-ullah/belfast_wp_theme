@@ -2,18 +2,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12 footer-column">
-                    <div class="copyright">CopyrightS © 2021 <a href="#">BELFAST</a>. All rights reserved</div>
+                    <?php 
+                        $footer_copy_wright = get_field('footer_copy_wright', 'option');
+                        if($footer_copy_wright){ ?>
+                            <div class="copyright"><?php echo $footer_copy_wright; ?></div>
+                         <?php
+                        }
+                    ?>
+                    
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12 footer-column">
                     <div class="footer-logo">
-                        <a href="index.html"><figure><img src="images/footer/logo1.png" alt=""></figure></a>
+                            <?php 
+                                $custom_logo_id = get_theme_mod( 'custom_logo' );
+                                $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                                
+                                if ( has_custom_logo() ) {
+                                    echo '<img src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
+                                } else {                                   
+                                    echo '<h1 class="theme-logo-title">' . get_bloginfo('name') . '</h1>';
+                                }
+                            ?>
+                        <!-- <a href="index.html"><figure><img src="images/footer/logo1.png" alt=""></figure></a> -->
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12 footer-column">
                     <ul class="social-style-seven pull-right in-block">
-                        <li><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;FACEBOOK</a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i>&nbsp;&nbsp;TWITTER</a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i>&nbsp;&nbsp;LINKEDIN</a></li>
+                        <?php 
+                            $footer_social_media_link_repeater = get_field('footer_social_media_link_repeater', 'option');
+                            if($footer_social_media_link_repeater){ 
+                                foreach($footer_social_media_link_repeater as $footer_sinlge_link){ 
+                                    $footer_social_media_name = $footer_sinlge_link['footer_social_media_name']; 
+                                    $footer_social_media_link = $footer_sinlge_link['footer_social_media_link']; 
+                                    $footer_social_media_icon = $footer_sinlge_link['footer_social_media_icon']; 
+                                    if($footer_social_media_name && $footer_social_media_link && $footer_social_media_icon){ ?>
+                                        <li><a href="<?php echo $footer_social_media_link;?>"> <i class="<?php echo $footer_social_media_icon;?>"></i><?php echo $footer_social_media_name;?></a></li>
+                                      <?php  
+                                    }
+                                }
+                                ?>
+                                
+                            <?php
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>

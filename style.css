@@ -36,3 +36,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
     height: 250px;
     width: 385px;
 }
+
+.copyright p{
+    font-size: 12px;
+}
