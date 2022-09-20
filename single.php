@@ -122,95 +122,34 @@
                 </div>
                 <div class="related-post centred">
                     <div class="title-text-two">RELATED POSTS</div>
-                    <div class="carousel-style-four nav-style-none dots-style-one">
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/2.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Travel</a></div>
-                                <div class="title"><h6><a href="post2.html">Love Boat soon will be making another run</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/3.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Lifestyle</a></div>
-                                <div class="title"><h6><a href="post2.html">Call him flipper flipper faster than lightning</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/4.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Fashion</a></div>
-                                <div class="title"><h6><a href="post2.html">East side to a deluxe apartment in the sky</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/2.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Travel</a></div>
-                                <div class="title"><h6><a href="post2.html">Love Boat soon will be making another run</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/3.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Lifestyle</a></div>
-                                <div class="title"><h6><a href="post2.html">Call him flipper flipper faster than lightning</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/4.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Fashion</a></div>
-                                <div class="title"><h6><a href="post2.html">East side to a deluxe apartment in the sky</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/2.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Travel</a></div>
-                                <div class="title"><h6><a href="post2.html">Love Boat soon will be making another run</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/3.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Lifestyle</a></div>
-                                <div class="title"><h6><a href="post2.html">Call him flipper flipper faster than lightning</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/4.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Fashion</a></div>
-                                <div class="title"><h6><a href="post2.html">East side to a deluxe apartment in the sky</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/2.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Travel</a></div>
-                                <div class="title"><h6><a href="post2.html">Love Boat soon will be making another run</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/3.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Lifestyle</a></div>
-                                <div class="title"><h6><a href="post2.html">Call him flipper flipper faster than lightning</a></h6></div>
-                            </div>
-                        </div>
-                        <div class="carousel-style-one">
-                            <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/4.jpg" alt=""></figure>
-                            <div class="lower-content">
-                                <div class="meta-text"><a href="#">Fashion</a></div>
-                                <div class="title"><h6><a href="post2.html">East side to a deluxe apartment in the sky</a></h6></div>
-                            </div>
-                        </div>
+                    <div class="carousel-style-four nav-style-none dots-style-one relation-post-single-img">
+                        <?php 
+                            $related_post_single_page = get_field('related_post_single_page');
+                            foreach($related_post_single_page as $single_related_post){ 
+                               $single_related_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $single_related_post->ID ), 'full' );
+                                ?>
+                                <div class="carousel-style-one">
+                                    <figure><img src="<?php echo $single_related_featured_image[0]; ?>" alt="<?php echo $single_related_post->post_title; ?>"></figure>
+                                    <div class="lower-content">
+                                        <div class="meta-text"><a href="#">Travel</a></div>
+                                        <div class="title"><h6><a href="<?php echo $single_related_post->guid; ?>"><?php echo $single_related_post->post_title; ?></a></h6></div>
+                                    </div>
+                                </div>                           
+                              <?php
+                            }
+                        ?>
+                        
                     </div>
                 </div>
                 <div class="comment-area">
-                    <div class="title-text-two">4 COMMENTS</div>
+                    <div class="title-text-two"><?php echo get_comments_number(); ?> 
+                        <?php if(1>get_comments_number()){
+                            echo "Comment";
+                            }else{
+                                echo "Comments";
+                            } 
+                        ?>
+                    </div>
                     <div class="single-comment">
                         <div class="img-box"><figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/c1.jpg" alt=""></figure></div>
                         <div class="comment-title">ADAM GILGRIST</div>
