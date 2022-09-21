@@ -219,11 +219,14 @@
                                             </div>
                                             <ul class="meta-list centred">
                                                 <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; <?php echo get_comments_number(); ?></a>  
-                                                <?php if(1>get_comments_number()){
-                                                    echo "Comment";
-                                                    }else{
+                                                <?php                            
+                                                    if(get_comments_number()>1){
                                                         echo "Comments";
-                                                    } ?></a></li>
+                                                    }else{
+                                                        echo "Comment";
+                                                    } 
+                                                ?>
+                                                </li>
                                                 <li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink();?>" title="Share on Facebook." target="_blank"><i class="fa fa-share-alt" aria-hidden="true"></i> &nbsp;Share</a></li>
                                             </ul>
                                         </div>

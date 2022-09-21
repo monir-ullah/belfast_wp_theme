@@ -97,12 +97,15 @@
                     </div>
                     <ul class="meta-list centred">
                         <li><a href="<?php the_permalink();?>"><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; <?php echo get_comments_number(); ?></a>  
-                            <?php if(1>get_comments_number()){
-                                echo "Comment";
-                                }else{
+                            <?php                            
+                                if(get_comments_number()>1){
                                     echo "Comments";
+                                }else{
+                                    echo "Comment";
                                 } 
-                            ?></a> &nbsp; <i class="flaticon-circle"></i> &nbsp; </li>
+                            ?>
+                            </a> &nbsp; <i class="flaticon-circle"></i> &nbsp; 
+                        </li>
                         <li><a href="<?php the_permalink();?>"><i class="flaticon-substract"></i> &nbsp; CONTINUE READING &nbsp; <i class="flaticon-substract"></i></a></li>
                         <li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink();?>"><i class="fa fa-share-alt" aria-hidden="true"></i> &nbsp;Share</a></li>
                     </ul>
@@ -120,33 +123,38 @@
                         ?>
                     </ul>
                 </div>
-                <div class="related-post centred">
-                    <div class="title-text-two">RELATED POSTS</div>
-                    <div class="carousel-style-four nav-style-none dots-style-one relation-post-single-img">
-                        <?php 
-                            $related_post_single_page = get_field('related_post_single_page');
-                            foreach($related_post_single_page as $single_related_post){ 
-                               $single_related_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $single_related_post->ID ), 'full' );
-                                ?>
-                                <div class="carousel-style-one">
-                                    <figure><img src="<?php echo $single_related_featured_image[0]; ?>" alt="<?php echo $single_related_post->post_title; ?>"></figure>
-                                    <div class="lower-content">
-                                        <div class="meta-text"><a href="#">Travel</a></div>
-                                        <div class="title"><h6><a href="<?php echo $single_related_post->guid; ?>"><?php echo $single_related_post->post_title; ?></a></h6></div>
-                                    </div>
-                                </div>                           
-                              <?php
-                            }
-                        ?>
-                        
-                    </div>
-                </div>
+                <?php 
+                    $related_post_single_page = get_field('related_post_single_page');
+                    if($related_post_single_page){ ?>
+                        <div class="related-post centred">
+                            <div class="title-text-two">RELATED POSTS</div>
+                            <div class="carousel-style-four nav-style-none dots-style-one relation-post-single-img">
+                                <?php 
+                                    foreach($related_post_single_page as $single_related_post){ 
+                                    $single_related_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $single_related_post->ID ), 'full' );
+                                        ?>
+                                        <div class="carousel-style-one">
+                                            <figure><img src="<?php echo $single_related_featured_image[0]; ?>" alt="<?php echo $single_related_post->post_title; ?>"></figure>
+                                            <div class="lower-content">
+                                                <div class="meta-text"><a href="#">Travel</a></div>
+                                                <div class="title"><h6><a href="<?php echo $single_related_post->guid; ?>"><?php echo $single_related_post->post_title; ?></a></h6></div>
+                                            </div>
+                                        </div>                           
+                                    <?php
+                                    }
+                                ?>    
+                            </div>
+                        </div>
+                      <?php
+                    }
+                ?>
                 <div class="comment-area">
                     <div class="title-text-two"><?php echo get_comments_number(); ?> 
-                        <?php if(1>get_comments_number()){
-                            echo "Comment";
-                            }else{
+                        <?php                            
+                            if(get_comments_number()>1){
                                 echo "Comments";
+                            }else{
+                                echo "Comment";
                             } 
                         ?>
                     </div>
