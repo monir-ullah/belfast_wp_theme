@@ -11,12 +11,6 @@
 <!-- page wrapper -->
 <body class="boxed_wrapper" <?php body_class(); ?>>
 
-
-    <!-- .preloader -->
-    <!-- <div class="preloader"></div> -->
-    <!-- /.preloader -->
-
-    
     <!-- menu-area -->
     <header class="main-header header-style-four">      
         <!-- header-top-style-two -->
