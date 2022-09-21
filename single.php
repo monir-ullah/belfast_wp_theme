@@ -159,63 +159,12 @@
                         ?>
                     </div>
                     <div class="single-comment">
-                        <div class="img-box"><figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/c1.jpg" alt=""></figure></div>
-                        <div class="comment-title">ADAM GILGRIST</div>
-                        <div class="replay"><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i>&nbsp;Reply</a></div>
-                        <div class="comment-time">8 MINS AGO</div>
-                        <div class="text">
-                            <p>The days are all Happy and Free these days you wanna be where everybody knows your name fish do to no burn on the grill took a whole lotta trying just to get up that wet floor.</p>
-                        </div>
+                        <?php 
+                            if ( comments_open() || get_comments_number() ) {
+                                comments_template();
+                            }
+                        ?>
                     </div>
-                    <div class="single-comment replay">
-                        <div class="img-box"><figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/c2.jpg" alt=""></figure></div>
-                        <div class="comment-title">MARIA WILLIAMS</div>
-                        <div class="replay"><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i>&nbsp;Reply</a></div>
-                        <div class="comment-time">2 MINS AGO</div>
-                        <div class="text">
-                            <p>The days are all Happy and Free these days you wanna be where everybody knows your as  on the grill took a whole lotta trying just to get up that wet floor.</p>
-                        </div>
-                    </div>
-                    <div class="single-comment">
-                        <div class="img-box"><figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/c3.jpg" alt=""></figure></div>
-                        <div class="comment-title">NIA JASS</div>
-                        <div class="replay"><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i>&nbsp;Reply</a></div>
-                        <div class="comment-time">5 MINS AGO</div>
-                        <div class="text">
-                            <p>The days are all Happy and Free these days you wanna be where everybody knows your name fish do to no burn on the grill took a whole lotta trying just to get up that wet floor.</p>
-                        </div>
-                    </div>
-                    <div class="single-comment replay">
-                        <div class="img-box"><figure><img src="<?php echo get_template_directory_uri(); ?>/assets/images/news/c4.jpg" alt=""></figure></div>
-                        <div class="comment-title">JASON ROY</div>
-                        <div class="replay"><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i>&nbsp;Reply</a></div>
-                        <div class="comment-time">1 WEEK AGO</div>
-                        <div class="text">
-                            <p>The days are all Happy and Free these days you wanna be where everybody knows your as  on the grill took a whole lotta trying just to get up that wet floor.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="comment-form">
-                    <div class="title-text-two">WRITE YOUR COMMENTS</div>
-                    <form action="#" method="post">
-                        <div class="row">
-                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                <textarea placeholder="Enter your comments here..." name="message" required=""></textarea>
-                            </div>
-                            <div class="form-group col-md-4 col-sm-12 col-xs-12">
-                                <input type="text" name="name" value="" placeholder="Name" required="">
-                            </div>
-                            <div class="form-group col-md-4 col-sm-12 col-xs-12">
-                                <input type="email" name="email" value="" placeholder="Email" required="">
-                            </div>
-                            <div class="form-group col-md-4 col-sm-12 col-xs-12">
-                                <input type="text" name="subject" value="" placeholder="Website" required="">
-                            </div>
-                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                <button type="submit" class="btn-one">POST COMMENT</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

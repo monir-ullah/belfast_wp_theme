@@ -15,6 +15,7 @@ Text Domain: belfast
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 .theme-logo-title{
     color: #f3a28b;
 }
@@ -51,4 +52,131 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .relation-post-single-img img {
     width: 250px;
     height: 200px;
+}
+
+.comment-author {
+    display: flex;
+}
+
+img.avatar {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: -80px;
+    top: 8px;
+}
+
+.comment-author a{
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333333;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+span.says{
+    display: none;
+}
+.comment{
+    position: relative;
+}
+.comment .reply {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.comment .reply a {
+    font-size: 15px;
+    font-family: 'Lora', sans-serif;
+    color: #f3a28b;
+    font-style: italic;
+    z-index: 1;
+}
+
+.comment .reply a:before {
+    content: "\f122";
+    margin-right: 8px;
+    font-family: 'FontAwesome';
+}
+.comment .alt {
+	margin-left: 80px;
+}
+.comment .parent .comment {
+	margin-left: 80px;
+}
+.parent{
+    margin-bottom: 40px;
+}
+.comment p {
+    margin-top: 15px;
+}
+#respond {
+    position: relative;
+    left: -80px;
+}
+
+.comment-reply-title{
+    position: relative;
+    font-size: 13px;
+    font-weight: 700;
+    color: #f3a28b;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
+    margin-top: 56px;
+    padding-bottom: 11px;
+    margin-bottom: 39px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+.comment-area .comment-respond{
+	width: 110%;
+}
+
+#commentform .comment-form-author label, .comment-form-email label , .comment-form-url label, .comment-form-comment label {
+    display: none;
+}
+
+#commentform input {
+    border: 1px solid #e0e0e0;
+}
+#commentform textarea {
+	height: 220px;
+	resize: none;
+	margin-bottom: 12px;
+	border: 1px solid #e0e0e0;
+}
+.comment-form-author, .comment-form-email, .comment-form-url  {
+    display: inline-block;
+    width: 32%;
+    margin-right: 11.5px;
+}
+.comment-form-url{
+    margin-right: 0px;
+}
+p.comment-form-cookies-consent label {
+	font-weight: 300;
+	color: #666666;
+	font-size: 15px;
+	margin-left: 5px;
+}
+#commentform .submit{
+    background-color: #f3a28b;
+    padding: 6px 32px 5px 31px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+#commentform .submit:hover {
+    color: #f3a28b;
+    background: transparent;
+    border: 2px solid #f3a28b;
+    transition: all 900ms ease;
+}
+.styled-separator.is-style-wide {
+    position: relative;
+    left: -80px;
+    right: 0;
+    width: 110%;
 }

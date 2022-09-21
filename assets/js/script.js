@@ -544,6 +544,5 @@
 		handlePreloader();
 	});
 
-	
 
 })(window.jQuery);

@@ -1394,6 +1394,7 @@ i.fa{
 }
 input[type=text],
 input[type=email],
+input[type=url],
 textarea{
   position: relative;
   width: 100%;
